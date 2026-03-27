@@ -1,0 +1,59 @@
+# LLVM  Google
+BasedOnStyle: LLVM
+
+Language: Cpp
+
+BreakBeforeBraces: Custom #自定义
+BraceWrapping:
+    AfterClass: true # 类定义后换行
+    AfterStruct: false # 结构体定义之后不换行
+    AfterUnion: false # 联合体定义之后不换行
+    AfterEnum: false # 枚举定义之后不换行
+    AfterNamespace: false # 命名空间定义之后不换行
+    AfterFunction: true # 函数定义之后不换行
+    #AfterControlStatement: true # 控制语句之后换行
+    BeforeCatch: false # 捕获语句之前换行
+    BeforeElse: true # else之前换行
+
+# 对齐连续的宏定义
+AlignConsecutiveMacros: AcrossEmptyLinesAndComments
+
+#  对齐尾部注释
+AlignTrailingComments: true
+
+# 访问修饰符偏移 
+AccessModifierOffset: -4 # -4就是public顶格
+
+AllowShortFunctionsOnASingleLine: true # 允许短函数在单行
+AllowShortBlocksOnASingleLine: true # 允许短语法块在单行上
+AllowShortIfStatementsOnASingleLine: true # 允许短if语句在单行上
+AllowShortLoopsOnASingleLine: true # 允许合并短循环到单行上
+
+# 控制行宽，避免行太长
+ColumnLimit: 220
+
+# 控制空格和标点符号风格
+SpaceBeforeAssignmentOperators: true  # 赋值操作符前插入空格
+
+# 缩进设置
+IndentWidth: 4  # 使用4个空格缩进
+
+# TabWidth: 4  # tab宽度为4个空格
+
+# 控制每行最大空行数（避免空行过多）
+MaxEmptyLinesToKeep: 3
+
+# 注释前保留一个空格
+SpacesBeforeTrailingComments: 1 
+
+# 排序头文件
+SortIncludes: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex:           '^<.*>'
+    Priority:        1
+  - Regex:           '.*'
+    Priority:        2
+
+PointerAlignment: Left   # 指针符号靠左(int* ptr)
+ReferenceAlignment: Left # 引用符号靠左(int& ref)

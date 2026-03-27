@@ -1,0 +1,27 @@
+set(ImgClassify_INCLUDE_DIRS "@CMAKE_INSTALL_PREFIX@/include")
+set(ImgClassify_LIBRARY_DIRS "@CMAKE_INSTALL_PREFIX@/lib")
+
+
+if (NOT TARGET ImgClassify::util_lib)
+  add_library(ImgClassify::util_lib SHARED IMPORTED)
+  set_target_properties(ImgClassify::util_lib PROPERTIES
+    IMPORTED_LOCATION "${ImgClassify_LIBRARY_DIRS}"
+    INTERFACE_INCLUDE_DIRECTORIES "${ImgClassify_INCLUDE_DIRS}"
+  )
+else()
+  message(STATUS "ImgClassify::util_lib already exists")
+endif()
+ 
+if(NOT TARGET ImgClassify::conv_lib)
+  add_library(ImgClassify::conv_lib SHARED IMPORTED)
+  set_target_properties(ImgClassify::conv_lib PROPERTIES
+    IMPORTED_LOCATION "${ImgClassify_LIBRARY_DIRS}"
+    INTERFACE_INCLUDE_DIRECTORIES "${ImgClassify_INCLUDE_DIRS}"
+  )
+else()
+  message(STATUS "ImgClassify::conv_lib already exists")
+endif()
+
+include(${CMAKE_CURRENT_LIST_DIR}/ImgClassifyTargets.cmake)
+
+
